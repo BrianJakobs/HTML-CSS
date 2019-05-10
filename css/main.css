@@ -1,0 +1,49 @@
+/*
+========================================
+Reset
+========================================
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1em;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+:root {
+    font-size: 1em;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+========================================
+Reset
+========================================
+*/
+
+#man {
+    width: 20px;
+}
