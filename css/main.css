@@ -108,30 +108,45 @@ svg {
     z-index: 100;
 }
 
+svg #man-fill,
+svg #car-fill,
+svg #woman-fill,
+svg #flowers-fill {
+    transform: translate(14.22px, -0.73px);
+}
+
+svg #man-fill path,
+svg #woman-fill path,
+svg #flowers-fill path,
+svg #car-fill path {
+    transition: fill .5s ease ;
+    fill: rgba(201, 30, 17, 0);
+}
+
+.flipHeadFill{
+    transform-origin:center;
+    transform: translateX(-27%) translateY(-17%) rotateY(-180deg);
+}
+
+.flipHead {
+    transform-origin:center;
+    transform: translateX(-39%) rotateY(-180deg);
+}
+
 svg path {
-    fill: rgba(0, 200, 0,1);
-    outline-color: rgb(0, 0, 200, 0);
-    outline-style: solid;
-    outline-width: 2px;
-    outline-offset: 0px;
+    fill: none;
 }
 
-svg #woman:hover {
-    stroke-dasharray: 1000;
-    animation: dash 1s ease alternate infinite;
+svg g {
+	stroke-dasharray: 500;
+	stroke-dashoffset: 1000;
+	animation: dash 5s ease infinite;
 }
 
-svg #man:hover {
-    stroke-dasharray: 1000;
-    animation: dash 1s ease alternate infinite;
-}
-
+svg #woman #woman-fill:hover,
+svg #man:hover,
+svg #flowers:hover,
 svg #car:hover {
-    stroke-dasharray: 1000;
-    animation: dash 1s ease alternate infinite;
-}
-
-svg #flowers:hover {
     stroke-dasharray: 1000;
     animation: dash 1s ease alternate infinite;
 }
@@ -144,6 +159,41 @@ svg #flowers:hover {
         stroke-dashoffset: 1000;
     }
 }
+
+
+svg g {
+    stroke: #000;
+    stroke-width:2px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+svg #woman #lower-arm{
+    stroke: #000;
+    stroke-width:2px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+svg g g:first-child {
+    stroke: none;
+}
+
+svg g #woman-fill path:hover,
+svg g #man-fill path:hover,
+svg g #flowers-fill path:hover,
+svg g #car-fill path:hover {
+    fill: rgba(201, 30, 17, .5);
+}
+
+/*
+svg g path {
+    stroke: #000;
+    fill: none;
+}
+*/
 
 @media only screen and (max-width: 500px) {
     body {
@@ -198,10 +248,4 @@ svg #flowers:hover {
     .textbox h2 {
         padding: 0 3vw;
     }
-}
-
-path {
-  stroke: #000;
-    stroke-width:2px;
-    fill: none;
 }
