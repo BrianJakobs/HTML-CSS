@@ -44,6 +44,15 @@ Placement
 ========================================
 */
 
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties*/
+:root {
+    --color: rgba(156, 64, 49, 1);
+    --dashoffset-start: 0;
+    --dashoffset-end: 1000;
+    --dasharray-num: 500;
+    
+}
+
 @font-face {
     font-family: 'FashionFetish';
     src: url('../fonts/Fashion Fetish Regular');
@@ -58,6 +67,10 @@ Placement
     src: url('../fonts/Faerghaus Sans DEMO.ttf') format('embedded-opentype'), url('../fonts/Ferghaus Sans DEMO.otf') format('otf'), url('../fonts/Ferghaus Sans DEMO.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+}
+
+body {
+    background-color: #ddd2bc;
 }
 
 main {
@@ -91,7 +104,8 @@ h2 {
     right: 0;
     font-size: 33vw;
     font-weight: 500;
-    color: #c91e11;
+    color: var(--color);
+    transition: color .3s;
 }
 
 .textbox h2 {
@@ -102,6 +116,19 @@ h2 {
     letter-spacing: 2.1vw;
     padding: 0.5vw 0vw;
 }
+
+.sliders-container { 
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  position: absolute;
+}
+
+.sliders-container input + input { 
+  margin: 2vh 0 0 0;
+}
+
 
 svg {
     transition: all 2s;
@@ -115,12 +142,23 @@ svg #flowers-fill {
     transform: translate(14.22px, -0.73px);
 }
 
+svg #ca-man path,
+svg #ca-woman path,
+svg #ca-car path,
+svg #ca-flowers path {
+    fill: var(--color);
+    transition: fill .3s;
+    stroke: none;
+    transform: translate(-197.2px, -137.2px);
+}
+
 svg #man-fill path,
 svg #woman-fill path,
 svg #flowers-fill path,
 svg #car-fill path {
     transition: fill .5s ease ;
-    fill: rgba(201, 30, 17, 0);
+    fill: var(--color);
+    opacity: 0;
 }
 
 .flipHeadFill{
@@ -135,43 +173,39 @@ svg #car-fill path {
 
 svg path {
     fill: none;
-}
-
-svg g {
-	stroke-dasharray: 500;
-	stroke-dashoffset: 1000;
-	animation: dash 5s ease infinite;
-}
-
-svg #woman #woman-fill:hover,
-svg #man:hover,
-svg #flowers:hover,
-svg #car:hover {
-    stroke-dasharray: 1000;
-    animation: dash 1s ease alternate infinite;
-}
-
-@keyframes dash {
-    from {
-        stroke-dashoffset: 0;
-    }
-    to {
-        stroke-dashoffset: 1000;
-    }
-}
-
-
-svg g {
-    stroke: #000;
-    stroke-width:2px;
-    fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
+/*https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes*/
+svg g {
+	stroke-dasharray: var(--dasharray-num);
+	stroke-dashoffset: 1000;
+	animation: dash 5s ease infinite;
+    stroke: #000;
+    stroke-width:2.5px;
+    fill: none;
+}
+
+/*
+.stop-animation {
+    animation-play-state: paused;
+}
+*/
+
+/*https://css-tricks.com/svg-line-animation-works/*/
+@keyframes dash {
+    from {
+        stroke-dashoffset: var(--dashoffset-start);
+    }
+    to {
+        stroke-dashoffset: var(--dashoffset-end);
+    }
+}
+
 svg #woman #lower-arm{
     stroke: #000;
-    stroke-width:2px;
+    stroke-width:2.5px;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -185,15 +219,8 @@ svg g #woman-fill path:hover,
 svg g #man-fill path:hover,
 svg g #flowers-fill path:hover,
 svg g #car-fill path:hover {
-    fill: rgba(201, 30, 17, .5);
+    fill: rgba(156, 64, 49, 0.5);
 }
-
-/*
-svg g path {
-    stroke: #000;
-    fill: none;
-}
-*/
 
 @media only screen and (max-width: 500px) {
     body {
