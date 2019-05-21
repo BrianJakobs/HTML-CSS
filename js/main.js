@@ -1,22 +1,28 @@
-var head = document.querySelector("svg #man #head"),
+    //Variabele voor Headflip
+var man = document.querySelector("svg #man"),
+    head = document.querySelector("svg #man #head"),
     headArea = document.querySelector("svg #man #head-fill"),
-    headArea = document.querySelector("svg #man #ca-head"),
-    manArea = document.querySelector("svg #man-fill"),
-    manStrokes = document.querySelector("svg #man g"),
-    womanArea = document.querySelector("svg #woman-fill"),
-    womanStrokes = document.querySelector("svg #woman g"),
-    flowersArea = document.querySelector("svg #flowers-fill"),
-    flowersStrokes = document.querySelector("svg #flowers g"),
-    carArea = document.querySelector("svg #car-fill"),
-    carStrokes = document.querySelector("svg #car g"),
+    headCa = document.querySelector("svg #man #ca-man #ca-head"),
     
-//    https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+    //Variabele voor de Arm
+    woman = document.querySelector("svg #woman"),
+    womanArm = document.querySelector("svg #woman #arm-front"),
+    womanArmCa = document.querySelector("svg #woman #ca-arm-front"),
+    
+    //Variabele voor de Auto
+    car = document.querySelector("svg #car"),
+    
+    
+    flowers = document.querySelector("svg #flowers"),
+    flowersStrokes = document.querySelector("svg #flowers #flower-paths g"),
+    
+    //https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+    //Variabele vor de slider
     dashArraySlider = document.querySelector(".controls .sliders-container #dashArray"),
-    strokes = document.querySelector("svg g"),
+    strokes = document.querySelectorAll("svg g"),
     
-//    https://vanseodesign.com/css/custom-properties-and-javascript/
-    strokeStyles = window.getComputedStyle(strokes),
-    dashArrayValue = strokeStyles.getPropertyValue("--dasharray-num)"),
+    //https://vanseodesign.com/css/custom-properties-and-javascript/
+    //Variabele voor de Kleuren
     headerStyles = window.getComputedStyle(document.querySelector(".textbox h1")),
     colorValue  = headerStyles.getPropertyValue("--color"),
     colorPick = document.querySelector(".controls .sliders-container #colorPick"),
@@ -25,22 +31,27 @@ var head = document.querySelector("svg #man #head"),
 
 colorPick.addEventListener("change", function() {
     headerOne.style.setProperty("--color",this.value);
-})
+});
 
-manArea.addEventListener('click', function() {
-    console.log("test");
+dashArraySlider.addEventListener("change", function() {
+    for (var i=0; i < strokes.length; i++) {
+    var strokeStyles = window.getComputedStyle(strokes[i]),
+        dashArrayValue = strokeStyles.getPropertyValue("--dasharray-num)");
+        strokes[i].style.setProperty("--dasharray-num",this.value);
+    }
+});
+
+man.addEventListener('click', function() {
     head.classList.toggle("flipHead");
     headArea.classList.toggle("flipHeadFill");
-    headCA.classList.toggle("flipHeadFill");
+    headCa.classList.toggle("flipHead");
 });
 
-manArea.addEventListener('click', function() {
-    console.log("stop");
-    manStrokes.classList.add("stop-animation");
+woman.addEventListener('click', function() {
+    womanArm.classList.toggle("rotateArm");
+    womanArmCa.classList.toggle("rotateArm");
 });
 
-womanArea.addEventListener('click', function() {
-    womanStrokes.classList.add("stop-animation");
+car.addEventListener('click', function() {
+    car.classList.toggle("carLeft");
 });
-
-strokeStyles.setProperty(dashArrayValue, dashArraySlider.nodeValue);
