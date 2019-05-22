@@ -95,10 +95,22 @@ h2 {
     z-index: -1;
 }
 
+p:nth-of-type(1) {
+    font-family: FashionFetish;
+    font-size: 1em;
+    margin: 0 0 0.5em;
+}
+
+p:nth-of-type(2) {
+    font-family: FashionFetish;
+    font-size: 1em;
+    margin: 1em 0 0.5em;
+}
+
 .textbox {
     position: relative;
     text-align: center;
-    bottom: 0.7vh;
+    bottom: 0.5vh;
 }
 
 .textbox h1 {
@@ -142,6 +154,49 @@ Controls
     margin: 2vh 0 0 0;
 }
 
+.slider-container input:nth-of-type(1) {
+    width: 100px;
+}
+
+input[type=range] {
+/*    https://www.w3schools.com/howto/howto_js_rangeslider.asp*/
+/*Bron voor HTML opbouw van een slider en prevent default stijl*/
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1.2em;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgba(0, 0, 0, 1);
+    border-radius: 1em;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.4em;
+    border: 2px solid rgba(0, 0, 0, 1);;
+    border-radius: 50%;
+    height: 1.4em;
+    background: var(--color);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 1.2em;
+    border-radius: 50%;
+    height: 1em;
+    background: var(--color);
+    cursor: pointer;
+}
+
+input[type=range]:hover,
+input[type=range]:active{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+input[type=color] {
+    width: 100%;
+}
+
 /*
 ========================================
 SVG
@@ -177,9 +232,9 @@ svg #man-fill path,
 svg #woman-fill path,
 svg #flowers-fill path,
 svg #car-fill path,
-svg #ca-man,
-svg #ca-woman,
-svg #ca-flowers,
+svg #ca-man path,
+svg #ca-woman path,
+svg #ca-flowers path,
 svg #ca-car {
     transition: transform .5s ease,
                 fill .5s ease;
@@ -190,33 +245,59 @@ svg #man #head-fill {
                 fill .5s ease;
 }
 
+svg #flowers #flowers-fill #bell-open-fill,
+svg #flowers #flowers-fill #bell-closed-fill {
+    transition: transform 0s linear,
+                fill .5s ease;
+}
+
 .flipHeadFill{
     transform-origin:center;
-    transform: translateX(-27%) translateY(-17%) rotateY(-180deg);
+    transform: translateX(-30.5%) translateY(-17%) rotateY(-180deg);
 }
 
 .flipHead {
     transform-origin:center;
-    transform: translateX(-39%) rotateY(-180deg);
+    transform: translateX(-41.82%) rotateY(-180deg);
 }
 
 .rotateArm {
     transform-origin: center;
-    transform: rotate(-9deg) translateY(-12%) translateX(0.5%); 
-    transition: transform .5s ease;
+    transform: rotate(-9deg) translateY(-12.5%) translateX(0.5%); 
 }
 
-/*https://cubic-bezier.com/#.8,-0.3,.2,1.3*/
-/*
-body > main > .wrapper > svg > #car {
-     transition-timing-function: transform .5s cubic-bezier(.8,-0.3,.2,1.3);
+/*https://cubic-bezier.com/#.4,-0.4,.5,1.05*/
+svg #car {
+    transition: transform 3s cubic-bezier(.4,-0.4,.5,1.05);
 }
-*/
-
 
 .carLeft {
     transform-origin: center; 
     transform: translateX(-19%);
+}
+
+svg #flowers #flower-paths {
+    transition: transform .5s ease;
+}
+
+.flowerDingleOpen {
+    transform-origin: center;
+    transform: rotate(-14.3deg) translateX(-2.1%) translateY(-18%);
+}
+
+.flowerDingleClosed {
+    transform-origin: center;
+    transform: rotate(14.3deg) translateX(3.6%) translateY(22%);
+}
+
+.flowerDingleOpenFill {
+    transform-origin: center;
+    transform: rotate(-14.3deg) translateX(-15.3%) translateY(-35%);
+}
+
+.flowerDingleClosedFill {
+    transform-origin: center;
+    transform: rotate(14.3deg) translateX(-9.6%) translateY(5.8%);
 }
 
 svg path {
@@ -306,7 +387,7 @@ Media Query
     }
     
     svg #woman, #man, #flowers, #car {
-        transform: translateX(100vw);
+        transform: translateX(60vw);
     }
 
     .textbox {

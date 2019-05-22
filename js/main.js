@@ -12,9 +12,14 @@ var man = document.querySelector("svg #man"),
     //Variabele voor de Auto
     car = document.querySelector("svg #car"),
     
-    
+    //Variabele voor de Bloemen
     flowers = document.querySelector("svg #flowers"),
-    flowersStrokes = document.querySelector("svg #flowers #flower-paths g"),
+    flowerSBellOpen = document.querySelector("svg #flowers #bell-open"),
+    flowersBellClosed = document.querySelector("svg #flowers #bell-closed"),
+    flowerSBellOpenCa = document.querySelector("svg #flowers #ca-bell-open"),
+    flowersBellClosedCa = document.querySelector("svg #flowers #ca-bell-closed"),
+    flowerSBellOpenArea = document.querySelector("svg #flowers #bell-open-fill"),
+    flowersBellClosedArea = document.querySelector("svg #flowers #bell-closed-fill"),
     
     //https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
     //Variabele vor de slider
@@ -41,6 +46,7 @@ dashArraySlider.addEventListener("change", function() {
     }
 });
 
+//Click events
 man.addEventListener('click', function() {
     head.classList.toggle("flipHead");
     headArea.classList.toggle("flipHeadFill");
@@ -54,4 +60,39 @@ woman.addEventListener('click', function() {
 
 car.addEventListener('click', function() {
     car.classList.toggle("carLeft");
+});
+
+flowers.addEventListener('click', function() {
+    flowerSBellOpen.classList.toggle("flowerDingleOpen");
+    flowersBellClosed.classList.toggle("flowerDingleClosed");
+    flowerSBellOpenCa.classList.toggle("flowerDingleOpen");
+    flowersBellClosedCa.classList.toggle("flowerDingleClosed");
+    flowerSBellOpenArea.classList.toggle("flowerDingleOpenFill");
+    flowersBellClosedArea.classList.toggle("flowerDingleClosedFill");
+});
+
+//Keypress events
+//https://keycode.info/
+document.addEventListener('keydown', function(e) {
+    if (e.keyCode == 37) {
+        console.log("he");
+        car.classList.toggle("carLeft");
+    }
+    else if (e.keyCode == 39) {
+        head.classList.toggle("flipHead");
+        headArea.classList.toggle("flipHeadFill");
+        headCa.classList.toggle("flipHead");
+    }
+    else if (e.keyCode == 38) {
+        womanArm.classList.toggle("rotateArm");
+        womanArmCa.classList.toggle("rotateArm");
+    }
+    else if (e.keyCode == 40) {
+        flowerSBellOpen.classList.toggle("flowerDingleOpen");
+        flowersBellClosed.classList.toggle("flowerDingleClosed");
+        flowerSBellOpenCa.classList.toggle("flowerDingleOpen");
+        flowersBellClosedCa.classList.toggle("flowerDingleClosed");
+        flowerSBellOpenArea.classList.toggle("flowerDingleOpenFill");
+        flowersBellClosedArea.classList.toggle("flowerDingleClosedFill");
+    }
 });
