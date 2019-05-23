@@ -73,6 +73,7 @@ flowers.addEventListener('click', function() {
 
 //Keypress events
 //https://keycode.info/
+//e staat voor event
 document.addEventListener('keydown', function(e) {
     if (e.keyCode == 37) {
         console.log("he");
