@@ -80,6 +80,11 @@ main {
     overflow: hidden;
 }
 
+.overflow {
+    position: absolute;
+    overflow: hidden;
+}
+
 /*
 ========================================
 Text
@@ -148,6 +153,7 @@ Controls
     position: absolute;
     margin: 5vh auto 0;
     top: 0;
+    z-index: 20;
 }
 
 .sliders-container { 
@@ -210,7 +216,7 @@ SVG
 */
 
 svg {
-    z-index: 100;
+    z-index: 10;
 }
 
 svg #man-fill,
