@@ -117,7 +117,12 @@ dashArraySlider.addEventListener("change", function() {
 
 ## De input
 
-Zoals gezegd heb ik dus op verschillende manieren voor input gezorgd, zo heb ik hover, click, slider, color en keydown.
+Zoals gezegd heb ik dus op verschillende manieren voor input gezorgd, zo heb ik:
+* Hover: 'svg #woman:hover #woman-fill path' pseudo-class: :hover
+* Click: 'man.addEventListener('click', function())' addEventListener: Click
+* Slider: 'dashArraySlider.addEventListener("change", function())' addEventListener: Change
+* Color: 'colorPick.addEventListener("change", function())' addEventListener: Change
+* Keydown: 'document.addEventListener('keydown', function(e))' addEventListener: Keydown
 
 ## CSS feature
 
