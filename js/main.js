@@ -59,7 +59,13 @@ woman.addEventListener('click', function() {
 });
 
 car.addEventListener('click', function() {
-    car.classList.toggle("carLeft");
+    if (window.innerWidth <= 500) {
+        console.log(window.innerWidth);
+        car.classList.toggle("carLeftSmall");
+    }
+    else {
+        car.classList.toggle("carLeft");
+    }
 });
 
 flowers.addEventListener('click', function() {
