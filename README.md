@@ -2,8 +2,6 @@
 #### Brian Jakobs 500753523
 
 Live Preview: [Live Preview](https://brianjakobs.github.io/HTML-CSS/).
-Filmfragment: [Blade Runner - Voight-Kampff test](https://youtu.be/Umc9ezAyJv0).
-Kort onderzoek: [Dropbox Paper](https://paper.dropbox.com/doc/Webanimation--AdrUduRdZt9Nr3AwEKi8OyqNAQ-RQN1lpkkazV241B30lkJ3)
 
 ## Poster
 
